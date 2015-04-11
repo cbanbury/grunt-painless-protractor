@@ -1,6 +1,6 @@
 {
   "name": "grunt-simple-protractor",
-  "description": "Start webdriver manager, start a local test server and run protractor",
+  "description": "Start webdriver, local test server and run protractor",
   "version": "0.0.1",
   "homepage": "",
   "author": {
