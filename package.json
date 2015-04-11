@@ -1,7 +1,7 @@
 {
   "name": "grunt-painless-protractor",
   "description": "Grunt plugin for installing/setting up selnium protractor, and running tests against a local instance of your server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "",
   "author": {
     "name": "Carl Banbury",
