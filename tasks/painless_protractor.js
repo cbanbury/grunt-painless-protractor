@@ -38,11 +38,11 @@ module.exports = function(grunt) {
         var done = this.async();
         var options = this.options({});
 
-        var webdriverBin = options.webdriver_bin || 'webdriver-manager';
-        var protractorBin = options.protractor_bin || 'protractor';
+        var webdriverBin = options.webdriver_bin || 'node_modules/protractor/bin/webdriver-manager';
+        var protractorBin = options.protractor_bin || 'node_modules/protractor/bin/protractor';
         var configFile = options.config_file || 'conf.js';
 
-        var update = spawnSync(webdriverBin, ['update'], {stdio: 'pipe'});
+        var update = spawnSync(webdriverBin, ['update'], {stdio: 'inherit'});
         webdriver = spawn(webdriverBin, ['start']);
 
         webdriver.stderr.on('data', function(data) {

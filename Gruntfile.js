@@ -32,12 +32,18 @@ module.exports = function(grunt) {
         painless_protractor: {
             basic: {
                 options: {
-                    config_file: 'test/fixtures/conf.js'
+                    config_file: 'test/fixtures/conf.js',
+                    test_server: {
+                        cmd: 'node',
+                        args: ['test/fixtures/server.js']
+                    }
                 }
             },
-            with_server: {
+            custom_driver: {
                 options: {
                     config_file: 'test/fixtures/conf.js',
+                    webdriver_bin: 'webdriver-manager',
+                    protractor_bin: 'protractor',
                     test_server: {
                         cmd: 'node',
                         args: ['test/fixtures/server.js']
@@ -78,6 +84,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['jshint', 'test']);
 
     grunt.registerTask('basic', 'painless_protractor:basic');
-    grunt.registerTask('local-server', 'painless_protractor:with_server');
+    grunt.registerTask('custom-webdriver', 'painless_protractor:custom_driver');
 
 };
