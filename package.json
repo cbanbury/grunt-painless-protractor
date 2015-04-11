@@ -1,6 +1,6 @@
 {
   "name": "grunt-painless-protractor",
-  "description": "Start webdriver, local test server and run protractor",
+  "description": "Grunt plugin for installing/setting up selnium protractor, and running tests against a local instance of your server",
   "version": "0.0.1",
   "homepage": "",
   "author": {

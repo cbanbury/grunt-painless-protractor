@@ -1,7 +1,6 @@
 # grunt-painless-protractor
 
-> Start webdriver manager, start a local test server and run protractor
-
+> Grunt plugin for installing/setting up selnium protractor, and running tests against a local instance of your server
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
@@ -29,58 +28,56 @@ grunt.initConfig({
       // Task-specific options go here.
     },
     your_target: {
-      // Target-specific file lists and/or options go here.
+        config_file: 'protractor_config.js',
+        webdriver_bin: 'webdriver-manager',
+        protractor_bin: 'protractor',
+        test_server: {
+            cmd: 'node',
+            args: ['server.js']
+        }
     },
   },
 });
 ```
 
+### What it does
+Getting protractor up and running can be a real headache. This aims to take care of as much of the setup
+process as possible, but leaving protractor configuration to its own config file.
+
+- Ensures webdriver-manager is updated
+- Starts selenium webdriver
+- Optionally start an instance of your local server (useful for CI)
+- Run protractor tests using protractor install from node modules.
+
+There is an optional override for `webdriver_bin` and `protractor_bin` path to use your systems own
+`protractor` or `webdriver-manager` binaries.
+
 ### Options
 
-#### options.separator
+#### options.config_file
 Type: `String`
-Default value: `',  '`
 
-A string value that is used to do something with whatever.
+Path to your protractor config file
 
-#### options.punctuation
+#### options.webdriver_bin
 Type: `String`
-Default value: `'.'`
+Default value: `node_modules/protractor/bin/webdriver-manager`
 
-A string value that is used to do something else with whatever else.
+Path to webdriver-manager binary
+
+#### options.protractor.bin
+Type: `String`
+Default value: `node_modules/protractor/bin/webdriver-manager`
+
+Path to protractor binary
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  painless_protractor: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+*TODO*
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  painless_protractor: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+*TODO*
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
