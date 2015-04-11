@@ -1,5 +1,5 @@
 /*
-* grunt-simple-protractor
+* grunt-painless-protractor
 *
 *
 * Copyright (c) 2015 Carl Banbury
@@ -34,7 +34,7 @@ function tidyShutdown(grunt, error) {
 }
 
 module.exports = function(grunt) {
-    grunt.registerMultiTask('simple_protractor', 'Start selenium webdriver, local server and run protractor tests', function() {
+    grunt.registerMultiTask('painless_protractor', 'Start selenium webdriver, local server and run protractor tests', function() {
         var done = this.async();
         var options = this.options({});
 
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
                     // spin up our test server
                     testServer = spawn(options.test_server.cmd,
                         options.test_server.args, {stdio: ['ignore', 'pipe']});
-                        
+
                     testServer.stdout.pipe(process.stdout);
                     testServer.stderr.on('data', function(data) {
                         return tidyShutdown(grunt, data.toString());

@@ -1,5 +1,5 @@
 /*
-* grunt-simple-protractor
+* grunt-painless-protractor
 *
 *
 * Copyright (c) 2015 Carl Banbury
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
         },
 
         // Configuration to be run (and then tested).
-        simple_protractor: {
+        painless_protractor: {
             basic: {
                 options: {
                     config_file: 'test/fixtures/conf.js'
@@ -72,12 +72,12 @@ module.exports = function(grunt) {
 
     // Whenever the "test" task is run, first clean the "tmp" dir, then run this
     // plugin's task(s), then test the result.
-    grunt.registerTask('test', ['clean', 'simple_protractor', 'nodeunit']);
+    grunt.registerTask('test', ['clean', 'painless_protractor', 'nodeunit']);
 
     // By default, lint and run all tests.
     grunt.registerTask('default', ['jshint', 'test']);
 
-    grunt.registerTask('basic', 'simple_protractor:basic');
-    grunt.registerTask('local-server', 'simple_protractor:with_server');
+    grunt.registerTask('basic', 'painless_protractor:basic');
+    grunt.registerTask('local-server', 'painless_protractor:with_server');
 
 };

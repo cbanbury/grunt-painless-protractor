@@ -1,5 +1,5 @@
 {
-  "name": "grunt-simple-protractor",
+  "name": "grunt-painless-protractor",
   "description": "Start webdriver, local test server and run protractor",
   "version": "0.0.1",
   "homepage": "",
