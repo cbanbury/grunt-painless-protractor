@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "null"
+    "url": "https://github.com/cbanbury/grunt-painless-protractor"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/cbanbury/grunt-painless-protractor/issues"
   },
   "licenses": [
     {
