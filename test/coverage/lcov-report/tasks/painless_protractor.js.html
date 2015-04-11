@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for tasks/painless_protractor.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">tasks/painless_protractor.js</span></h1>
+    <h2>
+        Statements: <span class="metric">18.18% <small>(8 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">18.18% <small>(8 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">tasks/</a> &#187; painless_protractor.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+* grunt-painless-protractor
+*
+*
+* Copyright (c) 2015 Carl Banbury
+* Licensed under the MIT license.
+*/
+&nbsp;
+'use strict';
+var spawn = require('child_process').spawn;
+var spawnSync = require('child_process').spawnSync;
+&nbsp;
+var webdriver;
+var protractor;
+var testServer;
+var pid;
+&nbsp;
+<span class="fstat-no" title="function not covered" >function tidyShutdown(grunt, error) {</span>
+<span class="cstat-no" title="statement not covered" >    if (pid) {</span>
+<span class="cstat-no" title="statement not covered" >        process.kill(pid);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (webdriver) {</span>
+<span class="cstat-no" title="statement not covered" >        process.kill(webdriver.pid);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (testServer.pid) {</span>
+<span class="cstat-no" title="statement not covered" >        process.kill(testServer.pid);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (error) {</span>
+<span class="cstat-no" title="statement not covered" >        return grunt.fail.warn(error);</span>
+    }
+}
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function(grunt) {</span>
+<span class="cstat-no" title="statement not covered" >    grunt.registerMultiTask('painless_protractor', 'Start selenium webdriver, local server and run protractor tests', <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        var done = this.async();</span>
+<span class="cstat-no" title="statement not covered" >        var options = this.options({});</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var webdriverBin = options.webdriver_bin || 'node_modules/protractor/bin/webdriver-manager';</span>
+<span class="cstat-no" title="statement not covered" >        var protractorBin = options.protractor_bin || 'node_modules/protractor/bin/protractor';</span>
+<span class="cstat-no" title="statement not covered" >        var configFile = options.config_file || 'conf.js';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var update = spawnSync(webdriverBin, ['update'], {stdio: 'inherit'});</span>
+<span class="cstat-no" title="statement not covered" >        if (update.stderr) {</span>
+<span class="cstat-no" title="statement not covered" >            return tidyShutdown(grunt, update.stderr);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        webdriver = spawn(webdriverBin, ['start']);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        webdriver.stderr.on('data', <span class="fstat-no" title="function not covered" >function(data) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (data.toString().search('WARN') &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >                return tidyShutdown(grunt, data.toString());</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (data.toString().search('ERROR') &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >                return tidyShutdown(grunt, data.toString());</span>
+            }
+&nbsp;
+            // run protactor once the webdriver is running
+<span class="cstat-no" title="statement not covered" >            if (data.toString().search('INFO - Started SocketListener') &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >                if (options.test_server &amp;&amp; options.test_server.cmd) {</span>
+                    // spin up our test server
+<span class="cstat-no" title="statement not covered" >                    testServer = spawn(options.test_server.cmd,</span>
+                        options.test_server.args || [], {stdio: 'inherit'});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    testServer.on('close', <span class="fstat-no" title="function not covered" >function(code) {</span></span>
+<span class="cstat-no" title="statement not covered" >                        tidyShutdown(grunt, code !==0 ? code : null);</span>
+<span class="cstat-no" title="statement not covered" >                        return done(code);</span>
+                    });
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                protractor = spawn(protractorBin, [configFile], {stdio: 'inherit'});</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                protractor.on('close', <span class="fstat-no" title="function not covered" >function(code) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    tidyShutdown(grunt, code !==0 ? code : null);</span>
+<span class="cstat-no" title="statement not covered" >                    return done(code);</span>
+                });
+            }
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        webdriver.stdout.on('data', <span class="fstat-no" title="function not covered" >function(data) {</span></span>
+&nbsp;
+            // grab the pid from log so we can cleanly exit
+<span class="cstat-no" title="statement not covered" >            if (data.toString().search('seleniumProcess.pid') &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >                pid = +data.toString().split(': ').pop();</span>
+            }
+        });
+    });
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Apr 11 2015 17:03:41 GMT+0100 (BST)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

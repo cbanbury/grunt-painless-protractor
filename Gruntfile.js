@@ -26,7 +26,19 @@ module.exports = function(grunt) {
         clean: {
             tests: ['tmp']
         },
-
+        mocha_istanbul: {
+            coverage: {
+                src: 'test/painless_protractor.test.js',
+                options: {
+                    coverage: true,
+                    coverageFolder: 'test/coverage',
+                    check: {
+                        branches: 100
+                    },
+                    reportFormats: ['text', 'lcov']
+                }
+            }
+        },
         // Configuration to be run (and then tested).
         painless_protractor: {
             basic: {
@@ -58,10 +70,11 @@ module.exports = function(grunt) {
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-mocha-istanbul')
 
     // Whenever the "test" task is run, first clean the "tmp" dir, then run this
     // plugin's task(s), then test the result.
-    grunt.registerTask('test', ['clean', 'painless_protractor']);
+    grunt.registerTask('test', ['clean', 'mocha_istanbul:coverage']);
 
     // By default, lint and run all tests.
     grunt.registerTask('default', ['jshint', 'test']);

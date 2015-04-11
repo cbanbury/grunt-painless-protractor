@@ -43,6 +43,10 @@ module.exports = function(grunt) {
         var configFile = options.config_file || 'conf.js';
 
         var update = spawnSync(webdriverBin, ['update'], {stdio: 'inherit'});
+        if (update.stderr) {
+            return tidyShutdown(grunt, update.stderr);
+        }
+
         webdriver = spawn(webdriverBin, ['start']);
 
         webdriver.stderr.on('data', function(data) {
@@ -56,14 +60,14 @@ module.exports = function(grunt) {
 
             // run protactor once the webdriver is running
             if (data.toString().search('INFO - Started SocketListener') > -1) {
-                if (options.test_server) {
+                if (options.test_server && options.test_server.cmd) {
                     // spin up our test server
                     testServer = spawn(options.test_server.cmd,
-                        options.test_server.args, {stdio: ['ignore', 'pipe']});
+                        options.test_server.args || [], {stdio: 'inherit'});
 
-                    testServer.stdout.pipe(process.stdout);
-                    testServer.stderr.on('data', function(data) {
-                        return tidyShutdown(grunt, data.toString());
+                    testServer.on('close', function(code) {
+                        tidyShutdown(grunt, code !==0 ? code : null);
+                        return done(code);
                     });
                 }
 
