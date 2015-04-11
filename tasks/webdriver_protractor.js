@@ -10,6 +10,29 @@
 var spawn = require('child_process').spawn;
 var spawnSync = require('child_process').spawnSync;
 
+var webdriver;
+var protractor;
+var testServer;
+var pid;
+
+function tidyShutdown(grunt, error) {
+    if (pid) {
+        process.kill(pid);
+    }
+
+    if (webdriver) {
+        process.kill(webdriver.pid);
+    }
+
+    if (testServer.pid) {
+        process.kill(testServer.pid);
+    }
+
+    if (error) {
+        return grunt.fail.warn(error);
+    }
+}
+
 module.exports = function(grunt) {
     grunt.registerMultiTask('simple_protractor', 'Start selenium webdriver, local server and run protractor tests', function() {
         var done = this.async();
@@ -20,31 +43,34 @@ module.exports = function(grunt) {
         var configFile = options.config_file || 'conf.js';
 
         var update = spawnSync(webdriverBin, ['update'], {stdio: 'pipe'});
-        var webdriver = spawn(webdriverBin, ['start']);
-        var protractor;
-        var pid;
+        webdriver = spawn(webdriverBin, ['start']);
 
         webdriver.stderr.on('data', function(data) {
             if (data.toString().search('WARN') > -1) {
-                return grunt.fail.warn(data.toString());
+                return tidyShutdown(grunt, data.toString());
             }
 
             if (data.toString().search('ERROR') > -1) {
-                return grunt.fail.warn(data.toString());
+                return tidyShutdown(grunt, data.toString());
             }
 
             // run protactor once the webdriver is running
             if (data.toString().search('INFO - Started SocketListener') > -1) {
+                if (options.test_server) {
+                    // spin up our test server
+                    testServer = spawn(options.test_server.cmd,
+                        options.test_server.args, {stdio: ['ignore', 'pipe']});
+                        
+                    testServer.stdout.pipe(process.stdout);
+                    testServer.stderr.on('data', function(data) {
+                        return tidyShutdown(grunt, data.toString());
+                    });
+                }
+
                 protractor = spawn(protractorBin, [configFile], {stdio: 'inherit'});
 
                 protractor.on('close', function(code) {
-                    process.kill(webdriver.pid);
-                    process.kill(pid);
-
-                    if (code !== 0) {
-                        return grunt.fail.warn(data.toString());
-                    }
-
+                    tidyShutdown(grunt, code !==0 ? code : null);
                     return done(code);
                 });
             }
