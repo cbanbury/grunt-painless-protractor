@@ -35,13 +35,15 @@ function tidyShutdown(grunt, error) {
 
 module.exports = function(grunt) {
     grunt.registerMultiTask('painless_protractor', 'Start selenium webdriver, local server and run protractor tests', function() {
-        var done = this.async();
+        console.log('in here ' + this);
+        // var done = this.async();
         var options = this.options({});
 
         var webdriverBin = options.webdriver_bin || 'node_modules/protractor/bin/webdriver-manager';
         var protractorBin = options.protractor_bin || 'node_modules/protractor/bin/protractor';
         var configFile = options.config_file || 'conf.js';
 
+        console.log('am getting here');
         var update = spawnSync(webdriverBin, ['update'], {stdio: 'inherit'});
         if (update.stderr) {
             return tidyShutdown(grunt, update.stderr);

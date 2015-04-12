@@ -6,10 +6,23 @@ describe('painless_protractor', function() {
     var painlessProtractor;
     var spawnStub;
     var spawnSyncStub;
+    var gruntStub;
+    var multiTaskStub;
+    var testFunction;
 
     beforeEach(function() {
         spawnStub = my.sinon.stub();
         spawnSyncStub = my.sinon.stub();
+
+        multiTaskStub = my.sinon.stub();
+
+        multiTaskStub.yields(null);
+        multiTaskStub.returnsThis();
+
+        gruntStub = {
+            registerMultiTask: multiTaskStub,
+            options: 'woop'
+        };
 
         painlessProtractor = my.proxyquire('../tasks/painless_protractor', {
             child_process: {
@@ -20,8 +33,9 @@ describe('painless_protractor', function() {
     });
 
     describe('update webdriver', function() {
-        it('should synchronously update webdriver', function() {
-
+        it.only('should synchronously update webdriver', function(done) {
+            var testFunction = multiTaskStub.lastCall.args[2];
+            testFunction();
         });
 
         it('should use webdriver binary provided by options if present', function() {
