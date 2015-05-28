@@ -1,6 +1,6 @@
 'use strict';
 
-var my = require('./common');
+require('./common');
 
 describe('painless_protractor', function() {
     var painlessProtractor;
@@ -11,20 +11,17 @@ describe('painless_protractor', function() {
     var testFunction;
 
     beforeEach(function() {
-        spawnStub = my.sinon.stub();
-        spawnSyncStub = my.sinon.stub();
+        spawnStub = sinon.stub();
+        spawnSyncStub = sinon.stub();
 
-        multiTaskStub = my.sinon.stub();
+        multiTaskStub = sinon.stub();
 
-        multiTaskStub.yields(null);
-        multiTaskStub.returnsThis();
 
         gruntStub = {
-            registerMultiTask: multiTaskStub,
-            options: 'woop'
+            registerMultiTask: multiTaskStub
         };
 
-        painlessProtractor = my.proxyquire('../tasks/painless_protractor', {
+        painlessProtractor = proxyquire('../tasks/painless_protractor', {
             child_process: {
                 spawn: spawnStub,
                 spawnSync: spawnSyncStub
@@ -37,7 +34,7 @@ describe('painless_protractor', function() {
             // Arrange
             var myFunction = function (a, b, callback) {
 
-                callback.call('booble')
+                callback.call('booble');
                 callback();
             };
 

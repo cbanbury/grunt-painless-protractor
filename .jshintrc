@@ -14,5 +14,10 @@
       "describe",
       "it",
       "beforeEach"
-  ]
+  ],
+  "globals": {
+      "sinon": false,
+      "proxyquire": false,
+      "expect": false
+  }
 }
