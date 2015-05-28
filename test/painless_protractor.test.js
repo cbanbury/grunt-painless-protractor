@@ -33,9 +33,25 @@ describe('painless_protractor', function() {
     });
 
     describe('update webdriver', function() {
-        it.only('should synchronously update webdriver', function(done) {
-            var testFunction = multiTaskStub.lastCall.args[2];
-            testFunction();
+        it.only('should synchronously update webdriver', function() {
+            // Arrange
+            var myFunction = function (a, b, callback) {
+
+                callback.call('booble')
+                callback();
+            };
+
+            var grunt = {
+                registerMultiTask: myFunction,
+                poo: 'basr'
+            };
+
+            myFunction.bind({});
+
+            // Act
+            painlessProtractor(grunt);
+
+            // Assert
         });
 
         it('should use webdriver binary provided by options if present', function() {

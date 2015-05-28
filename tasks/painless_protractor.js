@@ -34,9 +34,10 @@ function tidyShutdown(grunt, error) {
 }
 
 module.exports = function(grunt) {
+    console.log(grunt);
     grunt.registerMultiTask('painless_protractor', 'Start selenium webdriver, local server and run protractor tests', function() {
         console.log('in here ' + this);
-        // var done = this.async();
+        var done = this.async();
         var options = this.options({});
 
         var webdriverBin = options.webdriver_bin || 'node_modules/protractor/bin/webdriver-manager';

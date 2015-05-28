@@ -24,7 +24,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "node_modules/.bin/mocha test/painless_protractor.test.js"
   },
   "devDependencies": {
     "chai": "^2.2.0",
